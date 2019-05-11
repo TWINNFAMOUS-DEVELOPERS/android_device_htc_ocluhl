@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-# Release name## EU MODEL ##
+# Release name
 PRODUCT_RELEASE_NAME := ocla1
 
 $(call inherit-product, build/target/product/embedded.mk)
@@ -32,4 +32,4 @@ PRODUCT_MANUFACTURER := HTC
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=ocla1_sprout \
 	BUILD_PRODUCT=htc_ocla1_sprout \
-    TARGET_DEVICE=htc_ocla1_sprout
+TARGET_DEVICE=htc_ocla1_sprout

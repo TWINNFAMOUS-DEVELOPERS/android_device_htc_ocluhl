@@ -25,8 +25,6 @@
 
 BOARD_VENDOR := htc
 
-ALLOW_MISSING_DEPENDENCIES=true
-
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -46,7 +44,7 @@ ENABLE_SCHEDBOOST := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := SDM660
 TARGET_NO_BOOTLOADER := true
-#TARGET_USES_UEFI := true
+TARGET_USES_UEFI := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 user_debug=31 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 androidboot.configfs=true androidboot.usbcontroller=a800000.dwc3 androidboot.hardware=htc_ocl androidkey.dummy=1 buildvariant=eng
@@ -96,13 +94,13 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_THEME := portrait_hdpi
 TW_NO_EXFAT_FUSE := true
 TARGET_RECOVERY_DEVICE_MODULES := chargeled tzdata
-TARGET_RECOVERY_DEVICE_MODULES += android.hardware.boot@1.0 hwservicemanager servicemanager libxml2 keystore libicuuc android.hidl.base@1.0
-TW_RECOVERY_ADDITIONAL_RELINK_FILES := $(OUT)/system/lib64/android.hardware.boot@1.0.so $(OUT)/system/usr/share/zoneinfo/tzdata $(OUT)/system/bin/hwservicemanager $(OUT)/system/bin/servicemanager $(OUT)/system/lib64/libxml2.so $(OUT)/system/lib64/hw/keystore.default.so $(OUT)/system/lib64/libicuuc.so $(OUT)/system/lib64/android.hidl.base@1.0.so
+TARGET_RECOVERY_DEVICE_MODULES += android.hardware.boot@1.0 hwservicemanager servicemanager libxml2 libicuuc android.hidl.base@1.0 bootctrl.$(TARGET_BOARD_PLATFORM) update_engine_sideload
+TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/lib64/android.hardware.boot@1.0.so $(TARGET_OUT)/usr/share/zoneinfo/tzdata $(TARGET_OUT)/bin/hwservicemanager $(TARGET_OUT)/bin/servicemanager $(TARGET_OUT)/lib64/libxml2.so $(TARGET_OUT)/lib64/libicuuc.so $(TARGET_OUT)/lib64/android.hidl.base@1.0.so
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_NO_SCREEN_BLANK := true
 TW_USE_LEDS_HAPTICS := true
-#TW_USE_TOOLBOX := true
+TW_USE_TOOLBOX := true
 # Use mke2fs to create ext4 images
 TARGET_USES_MKE2FS := true
 
@@ -146,3 +144,4 @@ TWRP_INCLUDE_LOGCAT := true
 #TARGET_RECOVERY_DEVICE_MODULES += twrpdec
 #TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_RECOVERY_ROOT_OUT)/sbin/twrpdec
 TW_CRYPTO_SYSTEM_VOLD_DEBUG := true
+
