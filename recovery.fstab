@@ -8,7 +8,6 @@
 /misc			emmc	/dev/block/bootdevice/by-name/misc
 /devlog			ext4	/dev/block/bootdevice/by-name/devlog
 /carrier		ext4	/dev/block/bootdevice/by-name/carrier
-/cota			ext4	/dev/block/bootdevice/by-name/cota
 /persist		ext4	/dev/block/bootdevice/by-name/persist
 
 # Removable storage
