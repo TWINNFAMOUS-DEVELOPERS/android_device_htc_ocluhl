@@ -57,6 +57,7 @@ TARGET_PREBUILT_KERNEL := device/htc/ocla1/prebuilt/Image.gz-dtb
 
 # Platform
 TARGET_BOARD_PLATFORM := sdm660
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno508
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
@@ -94,13 +95,13 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_THEME := portrait_hdpi
 TW_NO_EXFAT_FUSE := true
 TARGET_RECOVERY_DEVICE_MODULES := chargeled tzdata
-TARGET_RECOVERY_DEVICE_MODULES += android.hardware.boot@1.0 hwservicemanager servicemanager libxml2 libicuuc android.hidl.base@1.0 bootctrl.$(TARGET_BOARD_PLATFORM) update_engine_sideload
-TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT)/lib64/android.hardware.boot@1.0.so $(TARGET_OUT)/usr/share/zoneinfo/tzdata $(TARGET_OUT)/bin/hwservicemanager $(TARGET_OUT)/bin/servicemanager $(TARGET_OUT)/lib64/libxml2.so $(TARGET_OUT)/lib64/libicuuc.so $(TARGET_OUT)/lib64/android.hidl.base@1.0.so
+TARGET_RECOVERY_DEVICE_MODULES += android.hardware.boot@1.0 hwservicemanager servicemanager libxml2 keystore libicuuc android.hidl.base@1.0
+TW_RECOVERY_ADDITIONAL_RELINK_FILES := $(OUT)/system/lib64/android.hardware.boot@1.0.so $(OUT)/system/usr/share/zoneinfo/tzdata $(OUT)/system/bin/hwservicemanager $(OUT)/system/bin/servicemanager $(OUT)/system/lib64/libxml2.so $(OUT)/system/lib64/hw/keystore.default.so $(OUT)/system/lib64/libicuuc.so $(OUT)/system/lib64/android.hidl.base@1.0.so
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_NO_SCREEN_BLANK := true
 TW_USE_LEDS_HAPTICS := true
-TW_USE_TOOLBOX := true
+#TW_USE_TOOLBOX := true
 # Use mke2fs to create ext4 images
 TARGET_USES_MKE2FS := true
 
@@ -116,11 +117,11 @@ AB_OTA_PARTITIONS += \
 
 # Custom Platform Version and Security Patch
 # TWRP Defaults
-#PLATFORM_VERSION := 16.1.0
-#PLATFORM_SECURITY_PATCH := 2025-12-05
+PLATFORM_VERSION := 16.1.0
+PLATFORM_SECURITY_PATCH := 2025-12-05
 # Must match build.prop of current system for vold decrypt to work properly!
-PLATFORM_VERSION := 9
-PLATFORM_SECURITY_PATCH := 2019-04-01
+#PLATFORM_VERSION := 9
+#PLATFORM_SECURITY_PATCH := 2018-12-01
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
@@ -144,4 +145,3 @@ TWRP_INCLUDE_LOGCAT := true
 #TARGET_RECOVERY_DEVICE_MODULES += twrpdec
 #TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_RECOVERY_ROOT_OUT)/sbin/twrpdec
 TW_CRYPTO_SYSTEM_VOLD_DEBUG := true
-
