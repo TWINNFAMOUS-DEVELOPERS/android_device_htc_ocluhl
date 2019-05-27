@@ -26,6 +26,7 @@
 BOARD_VENDOR := htc
 
 # Architecture
+TARGET_USES_AOSP := true
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
@@ -53,7 +54,7 @@ BOARD_KERNEL_CMDLINE += androidboot.fastboot=1
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 
-TARGET_PREBUILT_KERNEL := device/htc/ocla1/prebuilt/Image.gz-dtb
+TARGET_PREBUILT_KERNEL := device/htc/ocluhl/prebuilt/Image.gz-dtb
 
 # Platform
 TARGET_BOARD_PLATFORM := sdm660
@@ -117,23 +118,23 @@ AB_OTA_PARTITIONS += \
 
 # Custom Platform Version and Security Patch
 # TWRP Defaults
-PLATFORM_VERSION := 16.1.0
-PLATFORM_SECURITY_PATCH := 2025-12-05
+#PLATFORM_VERSION := 16.1.0
+#PLATFORM_SECURITY_PATCH := 2025-12-05
 # Must match build.prop of current system for vold decrypt to work properly!
 #PLATFORM_VERSION := 9
 #PLATFORM_SECURITY_PATCH := 2018-12-01
 
 # Encryption
-TARGET_HW_DISK_ENCRYPTION := true
 TW_INCLUDE_CRYPTO := true
-TW_CRYPTO_USE_SYSTEM_VOLD := hwservicemanager servicemanager qseecomd keymaster-3-0
-TW_CRYPTO_SYSTEM_VOLD_MOUNT := vendor
+TW_INCLUDE_CRYPTO_FBE := true
+#TW_CRYPTO_USE_SYSTEM_VOLD := hwservicemanager servicemanager qseecomd keymaster-3-0
+#TW_CRYPTO_SYSTEM_VOLD_MOUNT := vendor
 
 ## additional twrp flags ##
 TW_EXCLUDE_TWRPAPP := true
 TW_INCLUDE_REPACKTOOLS := true
 USE_RECOVERY_INSTALLER := true
-RECOVERY_INSTALLER_PATH := device/htc/ocla1/installer
+RECOVERY_INSTALLER_PATH := device/htc/ocluhl/installer
 TW_HAS_EDL_MODE := true
 
 # TWRP Debug Flags
