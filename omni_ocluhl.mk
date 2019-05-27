@@ -15,7 +15,7 @@
 #
 
 # Release name## EU MODEL ##
-PRODUCT_RELEASE_NAME := ocla1
+PRODUCT_RELEASE_NAME := ocluhl
 
 $(call inherit-product, build/target/product/embedded.mk)
 
@@ -23,13 +23,13 @@ $(call inherit-product, build/target/product/embedded.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := ocla1
-PRODUCT_NAME := omni_ocla1
+PRODUCT_DEVICE := ocluhl
+PRODUCT_NAME := omni_ocluhl
 PRODUCT_BRAND := htc
 PRODUCT_MODEL := HTC U11 life
 PRODUCT_MANUFACTURER := HTC	
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=ocla1_sprout \
+    PRODUCT_NAME=ocluhl \
 	BUILD_PRODUCT=htc_ocla1_sprout \
     TARGET_DEVICE=htc_ocla1_sprout
